@@ -1,0 +1,10 @@
+extends layout
+
+block content
+  h1 Create Short URL
+  p.lead A short curl creator for interview.
+  hr
+  .row-fluid
+    .col-sm-12
+      input#urlInput.input.form-control(type="url", name="urlInput")
+      a.btn.btn-secondary(href='javascript:void(0);', role='button') CREATE

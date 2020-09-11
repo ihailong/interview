@@ -1,10 +1,21 @@
 extends layout
 
 block content
-  h1 Create Short URL
+  h2 Create Short URL
   p.lead A short curl creator for interview.
   hr
-  .row-fluid
-    .col-sm-12
-      input#urlInput.input.form-control(type="url", name="urlInput")
-      a.btn.btn-secondary(href='javascript:void(0);', role='button') CREATE
+  #app
+    .row.col-md-12
+      .col-md-9
+        input#urlInput.input.form-control(type="url", name="urlInput", v-model="longUrl", v-on:keydown.enter="createShortUrl" placeholder="paste your url here")
+      .col-md-3
+        a.btn.btn-secondary.col-md-6(role='button',v-on:click="createShortUrl") CREATE
+        a.btn.btn-secondary.col-md-6(role='button',v-on:click="clearInput") CLEAR
+    .row.col-md-12
+      p.text-danger(v-show="errMsg" v-cloak) ERROR: "{{errMsg}}"
+    hr
+    h2 The short URL is: 
+    p 
+      a(v-bind:href="shortUrl" target="_blank" v-cloak) {{shortUrl}}
+  
+      

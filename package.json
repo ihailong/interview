@@ -18,7 +18,7 @@
         "serve": "node dist/server.js",
         "serve-debug": "nodemon --inspect dist/server.js",
         "start": "npm run serve",
-        "test": "jest --forceExit --coverage --verbose",
+        "test": "jest --forceExit --coverage --verbose --detectOpenHandles",
         "watch": "concurrently -k -p \"[{name}]\" -n \"Sass,TypeScript,Node\" -c \"yellow.bold,cyan.bold,green.bold\" \"npm run watch-sass\" \"npm run watch-ts\" \"npm run watch-node\"",
         "watch-debug": "concurrently -k -p \"[{name}]\" -n \"Sass,TypeScript,Node\" -c \"yellow.bold,cyan.bold,green.bold\" \"npm run watch-sass\" \"npm run watch-ts\" \"npm run serve-debug\"",
         "watch-node": "nodemon dist/server.js",
@@ -27,6 +27,7 @@
         "watch-ts": "tsc -w"
     },
     "dependencies": {
+        "@types/bluebird-global": "^3.5.12",
         "async": "^3.1.0",
         "base62": "^2.0.1",
         "bcrypt-nodejs": "^0.0.3",
@@ -53,6 +54,7 @@
     },
     "devDependencies": {
         "@types/async": "^3.0.2",
+        "@types/axios": "^0.14.0",
         "@types/bcrypt-nodejs": "^0.0.30",
         "@types/bluebird": "^3.5.27",
         "@types/body-parser": "^1.17.1",
@@ -82,6 +84,7 @@
         "@types/shelljs": "^0.8.5",
         "@types/supertest": "^2.0.8",
         "@types/validator": "^13.1.0",
+        "@types/vue": "^2.0.0",
         "@types/winston": "^2.4.4",
         "@typescript-eslint/eslint-plugin": "^2.3.1",
         "@typescript-eslint/parser": "^2.3.1",
